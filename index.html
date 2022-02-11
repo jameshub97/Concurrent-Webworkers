@@ -1,0 +1,22 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Sample Site</title>
+</head>
+
+<body>
+  <form id="first" action="http://localhost:3000/" method="POST">
+  <button name="foo1">Submit a book</button>
+  <!-- ask why I can't add custom data to be forwarded through one post port but to result in different actions? -->
+  <!-- <button name="foo1">alternative redirect</button> -->
+  </form>
+  <form id="second" action="http://localhost:3000/books" method="POST">
+  <button type = "submit" name="foo3" value="view">View Books</button>
+  </form>
+  <form id="second" action="http://localhost:3000/transactions" method="POST">
+    <button type = "submit" name="foo2" value="view">Transactions</button>
+    </form>
+</body>
+
+</html>

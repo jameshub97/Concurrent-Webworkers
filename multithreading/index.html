@@ -1,0 +1,33 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Web Workers</title>
+
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body>
+    <h1>Concurrent calls to API</h1>
+
+    <div class="controls" tabindex="0">
+      <button onclick="startw1()">Start W1</button>
+      <button onclick="startw2()">Start W2</button>
+    </br>
+      <button onclick="killw1()">Kill W1</button>
+      <button onclick="killw2()">Kill W2</button>
+    </br>
+      W1
+      <p class="result"></p>
+      W2
+      <p class="result2"></p>
+      </br>
+      Test
+      <p class="result3"></p>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
