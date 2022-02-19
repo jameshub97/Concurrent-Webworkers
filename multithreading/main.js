@@ -12,7 +12,8 @@ let book2 = new book("percy jackson", "10")
 let book3 = new book("dune", "10") 
 
 // workers simply randomly choose from an array, this message is sent
-// this
+// workers must only be able to send strings. Once a string is sent
+// this minuses from the object catalogue!!!
 
 
 
