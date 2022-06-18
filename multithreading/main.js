@@ -1,81 +1,76 @@
+alert("test")
+
 const first = document.querySelector('#number1');
 const second = document.querySelector('#number2');
 
-function book(name, value){
-    this.name = name
-    this.value = value
-}
+let book1 = new Object();
+book1.name = "Harry Potter";
+book1.value = 10;
 
+let book2 = new Object();
+book2.name = "Percy Jackson";
+book2.value = 10;
 
-let book1 = new book("harry potter", "10")
-let book2 = new book("percy jackson", "10")
-let book3 = new book("dune", "10") 
+let book3 = new Object();
+book3.name = "Dune";
+book3.value = 10;
 
-// workers simply randomly choose from an array, this message is sent
-// workers must only be able to send strings. Once a string is sent
-// this minuses from the object catalogue!!!
+bookchoices = [book1.name, book2.name, book3.name]
 
-
-
-document.querySelector('.result3').innerHTML = (Object.entries(books));
-
+let books = {book1, book2, book3}
 
 viewbooks = () => {
-    for(var key in books){
-        var value = books[key]
-        document.querySelector('.result3').innerHTML = value;
+    document.querySelector('.result3').innerHTML = bookchoices;
     }
-    
-    if (books == []) {
-        document.querySelector('.result3').innerHTML = "is empty";
-    }
+
+myque = []    
+que = (name) => {
+    myque.push(name)
+    document.querySelector('.result6').innerHTML = myque;
 }
 
-
-startw1 = () => {
-    if (window.Worker) {
-        const w1 = new Worker("worker.js");
-        w1.postMessage(books);
-        w1.onmessage = function (event) {
-            viewbooks();
-            e1 = event.data.e1;
-            e2 = event.data.e2;
-            document.querySelector('.result').innerHTML = event.data.e1 + event.data.e2;
-            if (books.includes(e1)) {
-                let newArray = books.filter(function (f) { return f !== e1 })
-                document.querySelector('.result4').innerHTML = newArray + " filtered";
-                document.querySelector('.result2').innerHTML = e1 + " is available";
-                books = newArray;
-
-            }
-            if (e1 == "completed") {
-                startw1();
-            }
-        };
-
-        killw1 = () => {
-            w1.terminate();
-            document.querySelector('.result').innerHTML = "terminated";
-        }
-    } else {
-        alert('Your browser doesn\'t support web workers.');
-    }
+update = () => {
+    document.querySelector('.result5').innerHTML = 
+    book1.name + book1.value + "\n" +
+    book2.name + book2.value + "\n" + 
+    book3.name + book3.value + "\n";
 }
+
+cleansestack = () =>{
+    if(book1.name.includes(myque[0])){
+        book1.value = book1.value -1;
+        update();
+    }
+    if(book2.name.includes(myque[0])){
+        book2.value = book.value -1;
+        update();
+    }
+    if(book3.name.includes(myque[0])){
+        book3.value = book3.value -1;
+        update();
+        
+    }
+  
+    myque.shift()
+    document.querySelector('.result6').innerHTML = myque;
+
+}
+
 
 startw2 = () => {
     if (window.Worker) {
         const w2 = new Worker("worker.js");
-        w2.postMessage(books);
+        w2.postMessage(bookchoices);
         w2.onmessage = function (event) {
             viewbooks();
             e1 = event.data.e1;
             e2 = event.data.e2;
             document.querySelector('.result2').innerHTML = event.data.e1 + event.data.e2;;
-            if (books.includes(e1)) {
+            if (bookchoices.includes(e2)) {
                 let newArray = books.filter(function (f) { return f !== e1 })
                 document.querySelector('.result4').innerHTML = newArray + " filtered";
                 document.querySelector('.result2').innerHTML = e1 + " is available";
-                books = newArray;
+                bookchoices = newArray;
             }
 
             if (e1 == "completed") {

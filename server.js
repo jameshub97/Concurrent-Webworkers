@@ -37,8 +37,8 @@ app.post('/books', (req, res) => {
     res.json(books);
 })
 
-app.post('/transactions', (req, res) => {
-    res.sendFile(path.join(__dirname, '/mythreads.html'))
+app.post('/MT', (req, res) => {
+    res.sendFile(path.join(__dirname, '/multithreading/index.html'))
 })
 
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
