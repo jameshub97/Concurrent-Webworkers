@@ -1,0 +1,42 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+
+    <title>Web Workers</title>
+  </head>
+
+  <body>
+    <h1>Concurrent calls to API</h1>
+    <h2>Add reversable sequence so that when new spawns are added and reduced, this changes if a worker should be used instead of being kept on activated state</h2>
+
+    <div class="controls" tabindex="0">
+      <button onclick="spawnworker(2)">spawn worker</button>
+      <button onclick="spawnworker(3)">spawn worker</button>
+      <button onclick="spawnworker(4)">spawn worker</button>
+      <button onclick="viewbooks()">View Available Books</button>
+      <button onclick="killWorkers()">Kill Workers</button>
+      <button onclick="activateWorker()">Activate</button>
+    </br>
+    <button onclick="kill">adad</button>
+
+
+    </br>
+      Workers
+      <p class="result"></p>
+      </br>
+      Available Books
+      <p class="result3"></p>
+      Filtered Books
+      <p class="result4"></p>
+
+    </div>
+    <script type="module">
+      import {someFunction} from "./main.js"
+      // window.foo = 123
+
+      console.log(someFunction())
+</script>
+  </body>
+</html>
