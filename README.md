@@ -7,4 +7,3 @@
 
 **What I learned:** Concurrency adds complexity—synchronization, race conditions, and state management become critical. Modern approach would use SharedWorkers or structured state management.
 
-**Status:** Historical project showing early exploration of parallel JavaScript.
